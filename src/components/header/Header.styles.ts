@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import Image from 'next/image';
 
 export const Header = styled.header`
   align-items: center;
@@ -13,6 +14,7 @@ export const Header = styled.header`
   top: 0;
 `;
 
-export const Logo = styled.img`
+export const Logo = styled(Image)`
   width: 8rem;
+  height: auto;
 `;

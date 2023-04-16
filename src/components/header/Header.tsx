@@ -10,7 +10,7 @@ interface HeaderProps {}
 const Header = ({}: HeaderProps) => {
   return (
     <S.Header>
-      <S.Logo src={Logo.src} alt="oetker-digital logo" />
+      <S.Logo src={Logo} alt="oetker-digital logo" />
       <Nav />
     </S.Header>
   );
