@@ -21,33 +21,30 @@ describe('<Header />', () => {
     });
   });
   let utils: RenderResult;
-  describe('content', () => {
-    describe('when header is rendered', () => {
-      it('renders nav items and logo', () => {
-        utils = render(<Header />);
-        const { getByText, getByAltText } = utils;
 
-        expect(getByAltText('oetker-digital logo')).toBeInTheDocument();
-        expect(getByText(navItems[0].title)).toBeInTheDocument();
-        expect(getByText(navItems[1].title)).toBeInTheDocument();
-      });
+  describe('when header is rendered', () => {
+    it('renders nav items and logo', () => {
+      utils = render(<Header />);
+      const { getByText, getByAltText } = utils;
+
+      expect(getByAltText('oetker-digital logo')).toBeInTheDocument();
+      expect(getByText(navItems[0].title)).toBeInTheDocument();
+      expect(getByText(navItems[1].title)).toBeInTheDocument();
     });
   });
 
-  describe('visuals', () => {
-    describe('when header is rendered on the main page', () => {
-      it('displays the main page link as active', () => {
-        utils = render(<Header />);
-        const { getByText } = utils;
+  describe('when header is rendered on the main page', () => {
+    it('displays the main page link as active', () => {
+      utils = render(<Header />);
+      const { getByText } = utils;
 
-        expect(getByText(navItems[0].title)).toHaveStyle({
-          color: theme.colors.primary,
-          borderColor: theme.colors.primary,
-        });
+      expect(getByText(navItems[0].title)).toHaveStyle({
+        color: theme.colors.primary,
+        'border-color': theme.colors.primary,
+      });
 
-        expect(getByText(navItems[1].title)).toHaveStyle({
-          color: theme.colors.text,
-        });
+      expect(getByText(navItems[1].title)).toHaveStyle({
+        color: theme.colors.text,
       });
     });
 

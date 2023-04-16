@@ -34,7 +34,12 @@ const Accordion = ({ items = [] }: AccordionProps) => {
       <S.Items>
         {items.map(({ title, body }) => (
           <S.Item key={title}>
-            <S.ItemTitle onClick={() => handleItemClick(title)}>{title}</S.ItemTitle>
+            <S.ItemTitle
+              onClick={() => handleItemClick(title)}
+              aria-expanded={openItem === title ? 'true' : 'false'}
+            >
+              {title}
+            </S.ItemTitle>
             <S.ItemBody isOpen={openItem === title}>
               <S.BodyImage src={body.img} alt={body.alt} />
               <div>
