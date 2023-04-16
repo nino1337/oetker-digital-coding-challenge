@@ -3,7 +3,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { render, axe, RenderResult } from '../../../utils/test-utils';
 
-import navItems from './components/data';
+import navItems from './components/Nav/data';
 
 import Header from './Header';
 

@@ -1,3 +1,10 @@
+import GithubTopicsContainer from '@/container/githubTopics/GithubTopics';
+
 export default function GithubTopics() {
-  return <p>github topics</p>;
+  return (
+    <>
+      <h1>Github Topics</h1>
+      <GithubTopicsContainer />
+    </>
+  );
 }

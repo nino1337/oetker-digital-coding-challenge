@@ -40,6 +40,7 @@ export const ItemBody = styled.div<{ isOpen: boolean }>`
 
 export const ItemTitle = styled.h3`
   background-color: ${({ theme }) => theme.colors.white};
+  border-radius: 3px;
   cursor: pointer;
   font-size: 2rem;
   margin: 0;
