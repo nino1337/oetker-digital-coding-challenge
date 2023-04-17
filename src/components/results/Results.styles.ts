@@ -4,6 +4,7 @@ import Image from 'next/image';
 export const Results = styled.ul`
   display: flex;
   flex-direction: column;
+  padding: 0;
 `;
 
 export const Result = styled.li`

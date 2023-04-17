@@ -1,11 +1,10 @@
-import { StaticImageData } from 'next/image';
 import React, { useState } from 'react';
 import * as S from './Accordion.styles';
 
 export type AccordionItem = {
   title: string;
   body: {
-    img: StaticImageData;
+    img: string;
     alt: string;
     title: string;
     text: string;

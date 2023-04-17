@@ -1,36 +1,73 @@
 import Select from '@/components/select/Select';
-import Results from '@/components/results/Results';
+import Results, { ResultItem } from '@/components/results/Results';
 import selectItems from './data/selectItems';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { FidgetSpinner } from 'react-loader-spinner';
+import Topics from './types/topics';
+import getRepositoriesByTopic from '@/services/getRepositoriesByTopic';
 
-import Topics from '../types/topics';
-import services from '@/services';
+import theme from '@/styles/theme';
 
 const GithubTopics = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<ResultItem[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [topic, setTopic] = useState<Topics | ''>('');
+
+  const handleTopicChange = (topic: Topics) => {
+    setData(null);
+    setTopic(topic);
+  };
+
+  const fetchRepositoriesFromTopics = useCallback(async (topic: Topics) => {
+    setLoading(true);
+    const { data: repositories, error: requestError } = await getRepositoriesByTopic(topic);
+
+    if (requestError) {
+      setError(true);
+    }
+
+    if (repositories) {
+      const mappedRepositories: ResultItem[] = repositories.map(
+        ({ name, stargazers_count, svn_url, owner }) => ({
+          name,
+          githubStars: stargazers_count,
+          img: owner.avatar_url ?? null,
+          imgAlt: `${name} avatar`,
+          href: svn_url,
+        })
+      );
+
+      setData(mappedRepositories);
+    }
+
+    setLoading(false);
+  }, []);
 
   useEffect(() => {
     if (topic) {
       fetchRepositoriesFromTopics(topic);
     }
-  }, [topic]);
+  }, [topic, fetchRepositoriesFromTopics]);
 
-  const handleTopicChange = (topic: Topics) => {
-    setTopic(topic);
-  };
-
-  const fetchRepositoriesFromTopics = async (topic: Topics) => {
-    const repositories = await services.getRepositoriesByTopic(topic);
-  };
   return (
     <>
       <Select items={selectItems} onChange={handleTopicChange} />
-      {data && JSON.stringify(data)}
-      {loading && '...loading'}
-      {error && 'An error occurred. Please try again.'}
+      {data && <Results items={data} />}
+      <FidgetSpinner
+        visible={loading}
+        height="80"
+        width="80"
+        ariaLabel="dna-loading"
+        wrapperStyle={{
+          margin: '0 auto',
+          display: 'block',
+        }}
+        wrapperClass="dna-wrapper"
+        ballColors={[theme.colors.primary, theme.colors.primary, theme.colors.primary]}
+        backgroundColor={theme.colors.primary}
+      />
+      {error && <p>An error occurred. Please try again.</p>}
     </>
   );
 };

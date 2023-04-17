@@ -8,10 +8,16 @@ const globalStyles: (theme: Theme) => SerializedStyles = (theme) => css`
     font-size: 62.5%;
     height: 100vh;
     margin: 0;
+    overflow-y: scroll;
   }
 
   body {
     font-size: 1.6rem;
+  }
+
+  h1 {
+    color: ${theme.colors.white};
+    font-size: 4rem;
   }
 `;
 

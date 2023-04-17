@@ -1,3 +1,10 @@
+import HomeAccordion from '@/views/homeAccordion/HomeAccordion';
+
 export default function Home() {
-  return <p>accordion</p>;
+  return (
+    <>
+      <h1>Accordion</h1>
+      <HomeAccordion />
+    </>
+  );
 }
