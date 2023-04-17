@@ -19,6 +19,10 @@ const globalStyles: (theme: Theme) => SerializedStyles = (theme) => css`
     color: ${theme.colors.white};
     font-size: 4rem;
   }
+
+  p {
+    color: ${theme.colors.white};
+  }
 `;
 
 export default globalStyles;

@@ -25,7 +25,9 @@ export const Link = styled.a`
 `;
 
 export const Avatar = styled(Image)`
+  height: 5rem;
   margin-right: 1rem;
+  width: 5rem;
 `;
 
 export const Name = styled.h4``;

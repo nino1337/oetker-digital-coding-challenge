@@ -13,3 +13,8 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Github Topics
+
+Make sure to create a .env file, where you need paste in your personal access token from github as follows:
+NEXT_PUBLIC_GITHUB_ACCESS_TOKEN=YOUR_ACCESS_TOKEN

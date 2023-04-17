@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import Image from 'next/image';
 
 import mq from '@/styles/mq';
 
@@ -53,7 +52,9 @@ export const BodyTitle = styled.h4`
   font-size: 1.8rem;
 `;
 
-export const BodyText = styled.p``;
+export const BodyText = styled.p`
+  color: ${({ theme }) => theme.colors.text};
+`;
 
 // no static next image as I also want to use random picsum photos without hardcoding width and height
 export const BodyImage = styled.img`
