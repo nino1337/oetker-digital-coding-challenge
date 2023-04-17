@@ -6,11 +6,6 @@ const meta: Meta<typeof Header> = {
   title: 'Example/Header',
   component: Header,
   tags: ['autodocs'],
-  argTypes: {
-    backgroundColor: {
-      control: 'color',
-    },
-  },
 };
 
 export default meta;

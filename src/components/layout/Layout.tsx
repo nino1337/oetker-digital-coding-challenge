@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import Header from '../header/Header';
 import * as S from './Layout.styles';
 

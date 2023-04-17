@@ -1,4 +1,3 @@
-import Header from '@/components/header/Header';
 import Layout from '@/components/layout/Layout';
 import globals from '@/styles/globals';
 import theme from '@/styles/theme';

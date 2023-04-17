@@ -3,7 +3,6 @@ import { Theme } from '@emotion/react';
 
 type Colors = {
   primary: string;
-  secondary: string;
   background: string;
   text: string;
   white: string;
@@ -32,7 +31,6 @@ declare module '@emotion/react' {
 const theme: Theme = {
   colors: {
     primary: '#4a90e2',
-    secondary: '#f2aa68',
     background: '#333333',
     grey: '#f7f5f5',
     text: '#333333',

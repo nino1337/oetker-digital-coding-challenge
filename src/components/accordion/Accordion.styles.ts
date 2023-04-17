@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import Image from 'next/image';
 
 import mq from '@/styles/mq';
 
@@ -9,6 +8,7 @@ export const Accordion = styled.div``;
 export const Items = styled.ul`
   display: flex;
   flex-direction: column;
+  padding: 0;
 `;
 
 export const Item = styled.li`
@@ -40,8 +40,10 @@ export const ItemBody = styled.div<{ isOpen: boolean }>`
 
 export const ItemTitle = styled.h3`
   background-color: ${({ theme }) => theme.colors.white};
+  border-radius: 3px;
   cursor: pointer;
   font-size: 2rem;
+  font-weight: normal;
   margin: 0;
   padding: 1.4rem;
 `;
@@ -50,9 +52,12 @@ export const BodyTitle = styled.h4`
   font-size: 1.8rem;
 `;
 
-export const BodyText = styled.p``;
+export const BodyText = styled.p`
+  color: ${({ theme }) => theme.colors.text};
+`;
 
-export const BodyImage = styled(Image)`
+// no static next image as I also want to use random picsum photos without hardcoding width and height
+export const BodyImage = styled.img`
   height: auto;
   max-width: 100%;
   margin: 0 auto 1rem;

@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 export const Nav = styled.nav`
   margin-left: auto;
@@ -21,7 +21,7 @@ export const Link = styled.a<{ isActive: boolean }>`
   border-bottom: 1px solid transparent;
   font-size: 1.8rem;
   text-decoration: none;
-  transition: border 0.2s;
+  transition: border 0.2s, color 0.2s;
 
   ${({ isActive, theme }) =>
     isActive &&

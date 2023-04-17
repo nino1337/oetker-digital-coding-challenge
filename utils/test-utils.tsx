@@ -14,14 +14,13 @@ const Wrapper = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const customRender = (
-  ui: ReactElement,
-  options?: Omit<RenderOptions, 'wrapper'>
-) => render(ui, { wrapper: Wrapper, ...options });
+const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
+  render(ui, { wrapper: Wrapper, ...options });
 
 // re-export everything
 export * from '@testing-library/react';
 export * from '@testing-library/jest-dom';
 export * from 'jest-axe';
+export { default as userEvent } from '@testing-library/user-event';
 // override render method
 export { customRender as render };
