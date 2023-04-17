@@ -1,12 +1,11 @@
-import Select from '@/components/select/Select';
-import Results, { ResultItem } from '@/components/results/Results';
-import selectItems from './data/selectItems';
 import { useCallback, useEffect, useState } from 'react';
-import { FidgetSpinner } from 'react-loader-spinner';
-import Topics from './types/topics';
-import getRepositoriesByTopic from '@/services/getRepositoriesByTopic';
 
-import theme from '@/styles/theme';
+import LoadingSpinner from '@/components/loadingSpinner/LoadingSpinner';
+import Results, { ResultItem } from '@/components/results/Results';
+import Select from '@/components/select/Select';
+import getRepositoriesByTopic from '@/services/getRepositoriesByTopic';
+import selectItems from './data/selectItems';
+import Topics from './types/topics';
 
 const GithubTopics = () => {
   const [data, setData] = useState<ResultItem[] | null>(null);
@@ -16,6 +15,7 @@ const GithubTopics = () => {
 
   const handleTopicChange = (topic: Topics) => {
     setData(null);
+    setError(false);
     setTopic(topic);
   };
 
@@ -54,19 +54,7 @@ const GithubTopics = () => {
     <>
       <Select items={selectItems} onChange={handleTopicChange} />
       {data && <Results items={data} />}
-      <FidgetSpinner
-        visible={loading}
-        height="80"
-        width="80"
-        ariaLabel="dna-loading"
-        wrapperStyle={{
-          margin: '0 auto',
-          display: 'block',
-        }}
-        wrapperClass="dna-wrapper"
-        ballColors={[theme.colors.primary, theme.colors.primary, theme.colors.primary]}
-        backgroundColor={theme.colors.primary}
-      />
+      <LoadingSpinner visible={loading} />
       {error && <p>An error occurred. Please try again.</p>}
     </>
   );

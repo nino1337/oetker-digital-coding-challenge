@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import MockImage from './mock.svg';
-
 import Results from './Results';
 
 const meta: Meta<typeof Results> = {

@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, run `npm i` and then start the development server:
 
 ```bash
 npm run dev
@@ -16,5 +16,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Github Topics
 
-Make sure to create a .env file, where you need paste in your personal access token from github as follows:
+Make sure to create a .env file, where you need to paste in your personal access token from github as follows:
 NEXT_PUBLIC_GITHUB_ACCESS_TOKEN=YOUR_ACCESS_TOKEN
+
+also see: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token

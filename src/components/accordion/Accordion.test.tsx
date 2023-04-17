@@ -1,8 +1,5 @@
-import React from 'react';
+import { axe, render, RenderResult, userEvent } from '../../../utils/test-utils';
 
-import { render, axe, RenderResult, userEvent } from '../../../utils/test-utils';
-
-import MockImage from './mock.svg';
 import Accordion from './Accordion';
 
 const DEFAULT_PROPS = {
@@ -12,7 +9,7 @@ const DEFAULT_PROPS = {
       body: {
         title: 'Body Title 1',
         text: 'Body Text 1',
-        img: MockImage,
+        img: '',
         alt: 'Body Image 1',
       },
     },
@@ -21,7 +18,7 @@ const DEFAULT_PROPS = {
       body: {
         title: 'Body Title 2',
         text: 'Body Text 2',
-        img: MockImage,
+        img: '',
         alt: 'Body Image 2',
       },
     },
@@ -32,7 +29,7 @@ describe('<Accordion />', () => {
   let utils: RenderResult;
   describe('props', () => {
     describe('items', () => {
-      describe('when items are', () => {
+      describe('when items are given', () => {
         it('renders them correctly', () => {
           utils = render(<Accordion {...DEFAULT_PROPS} />);
           const { getByText, getByAltText } = utils;

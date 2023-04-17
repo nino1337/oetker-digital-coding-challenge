@@ -1,7 +1,7 @@
 import * as S from './Results.styles';
 
-import StarsIcon from './assets/star-icon.png';
 import AvatarPlaceholder from './assets/avatarPlaceholder.svg';
+import StarsIcon from './assets/star-icon.png';
 
 export type ResultItem = {
   img: string | null;

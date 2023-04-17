@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import * as S from './Accordion.styles';
 
 export type AccordionItem = {
