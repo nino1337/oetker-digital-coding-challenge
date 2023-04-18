@@ -1,6 +1,6 @@
 import theme from '@/styles/theme';
 import { useRouter } from 'next/router';
-import { axe, render, RenderResult } from '../../../utils/test-utils';
+import { axe, render, RenderResult, screen } from '../../../utils/test-utils';
 
 import navItems from './components/Nav/data';
 
@@ -10,7 +10,6 @@ jest.mock('next/router', () => ({
   useRouter: jest.fn(),
 }));
 
-// mock useRouter to avoid typescript errors
 const mockedUseRouter = useRouter as jest.Mock;
 
 describe('<Header />', () => {
@@ -24,24 +23,22 @@ describe('<Header />', () => {
   describe('when header is rendered', () => {
     it('renders nav items and logo', () => {
       utils = render(<Header />);
-      const { getByText, getByAltText } = utils;
 
-      expect(getByAltText('oetker-digital logo')).toBeInTheDocument();
-      expect(getByText(navItems[0].title)).toBeInTheDocument();
-      expect(getByText(navItems[1].title)).toBeInTheDocument();
+      expect(screen.getByAltText('oetker-digital logo')).toBeInTheDocument();
+      expect(screen.getByText(navItems[0].title)).toBeInTheDocument();
+      expect(screen.getByText(navItems[1].title)).toBeInTheDocument();
     });
 
     describe('on the main page', () => {
       it('displays the main page link as active', () => {
         utils = render(<Header />);
-        const { getByText } = utils;
 
-        expect(getByText(navItems[0].title)).toHaveStyle({
+        expect(screen.getByText(navItems[0].title)).toHaveStyle({
           color: theme.colors.primary,
           'border-color': theme.colors.primary,
         });
 
-        expect(getByText(navItems[1].title)).toHaveStyle({
+        expect(screen.getByText(navItems[1].title)).toHaveStyle({
           color: theme.colors.text,
         });
       });
@@ -53,14 +50,13 @@ describe('<Header />', () => {
       });
       it('displays the github-topics page link as active', () => {
         utils = render(<Header />);
-        const { getByText } = utils;
 
-        expect(getByText(navItems[1].title)).toHaveStyle({
+        expect(screen.getByText(navItems[1].title)).toHaveStyle({
           color: theme.colors.primary,
           borderColor: theme.colors.primary,
         });
 
-        expect(getByText(navItems[0].title)).toHaveStyle({
+        expect(screen.getByText(navItems[0].title)).toHaveStyle({
           color: theme.colors.text,
         });
       });
