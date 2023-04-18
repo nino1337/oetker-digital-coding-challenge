@@ -1,4 +1,4 @@
-import { axe, render, RenderResult, userEvent } from '../../../utils/test-utils';
+import { axe, render, RenderResult, screen, userEvent } from '../../../utils/test-utils';
 
 import Accordion from './Accordion';
 
@@ -32,13 +32,12 @@ describe('<Accordion />', () => {
       describe('when items are given', () => {
         it('renders them correctly', () => {
           utils = render(<Accordion {...DEFAULT_PROPS} />);
-          const { getByText, getByAltText } = utils;
 
-          expect(getByText('Test 1')).toBeInTheDocument();
-          expect(getByText('Body Title 1')).toBeInTheDocument();
-          expect(getByText('Body Text 1')).toBeInTheDocument();
-          expect(getByAltText('Body Image 1')).toBeInTheDocument();
-          expect(getByText('Test 2')).toBeInTheDocument();
+          expect(screen.getByText('Test 1')).toBeInTheDocument();
+          expect(screen.getByText('Body Title 1')).toBeInTheDocument();
+          expect(screen.getByText('Body Text 1')).toBeInTheDocument();
+          expect(screen.getByAltText('Body Image 1')).toBeInTheDocument();
+          expect(screen.getByText('Test 2')).toBeInTheDocument();
         });
       });
     });
@@ -49,8 +48,7 @@ describe('<Accordion />', () => {
       describe('when an accordion item is clicked', () => {
         it('opens its content', async () => {
           utils = render(<Accordion {...DEFAULT_PROPS} />);
-          const { getByText } = utils;
-          const firstAccordionItem = getByText('Test 1');
+          const firstAccordionItem = screen.getByText('Test 1');
           const accordionBody = firstAccordionItem.nextElementSibling;
 
           expect(accordionBody).toHaveStyle({
