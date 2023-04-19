@@ -7,6 +7,7 @@ export const Nav = styled.nav`
 
 export const Items = styled.ul`
   display: flex;
+  padding: 0;
 `;
 
 export const Item = styled.li`
