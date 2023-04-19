@@ -10,7 +10,6 @@ export const Results = styled.ul`
 export const Result = styled.li`
   border-radius: 2px;
   background-color: ${({ theme }) => theme.colors.white};
-  border: 1px solid ${({ theme }) => theme.colors.text};
   display: flex;
   margin-bottom: 1rem;
 `;
