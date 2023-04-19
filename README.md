@@ -14,6 +14,10 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Storybook
+
+To start the storybook server, use `npm run storybook`
+
 ## Github Topics
 
 Make sure to create a .env file, where you need to paste in your personal access token from github as follows:
